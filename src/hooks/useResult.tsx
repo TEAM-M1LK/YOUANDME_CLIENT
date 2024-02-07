@@ -2,7 +2,7 @@ import Chat from "../components/Chat";
 
 export const useResult = (result: any) => {
   const getFinallyRelation = () => {
-    return "`배유정씨가 일해줄 곳`";
+    return "`test!`";
   };
 
   const getChatting = () => {
@@ -17,7 +17,7 @@ export const useResult = (result: any) => {
               alt="Beaming Face with Smiling Eyes"
             />
           </Chat>
-          <Chat author="me">`배유정씨가 일해줄 곳`</Chat>
+          <Chat author="me">`test!`</Chat>
         </main>
         <main className="w-full flex flex-col gap-2">
           <span className="mr-auto font-semibold">{result.you.name}</span>
@@ -28,7 +28,7 @@ export const useResult = (result: any) => {
               alt="Grinning Face with Big Eyes"
             />
           </Chat>
-          <Chat author="you">`배유정씨가 일해줄 곳`</Chat>
+          <Chat author="you">`test!`</Chat>
         </main>
       </>
     );
@@ -50,7 +50,7 @@ export const useResult = (result: any) => {
   };
 
   const getConclusion = () => {
-    return "`배유정씨가 일해줄 곳`";
+    return "`test!`";
   };
 
   return { getFinallyRelation, getChatting, getKoreanRelation, getConclusion };

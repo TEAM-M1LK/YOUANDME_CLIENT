@@ -16,8 +16,10 @@ const Analysis = () => {
     (async () => {
       if (info.contents.length > 1) {
         const { data } = await axios.post(
-          "http://localhost:8000/talk/analysis",
-          { ...info }
+          "http://ec2-13-209-41-56.ap-northeast-2.compute.amazonaws.com/QWB8Yfg2",
+          {
+            ...info,
+          }
         );
         console.log(data);
         setResult(data);
