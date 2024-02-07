@@ -17,7 +17,7 @@ const Step3 = () => {
       <Header content="3/4" />
       <div className="w-full h-full flex flex-col px-10 py-2 gap-10">
         <span className="text-2xl font-bold">
-          좋아, 네 생각에 {particle(info.you).name(조사.이_랑)} <br />
+          좋아, 네 생각에 {particle(info.your_name).name(조사.이_랑)} <br />
           너는 어떤 사이인것 같아?
         </span>
         <main className="flex flex-col gap-4">

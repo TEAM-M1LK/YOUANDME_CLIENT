@@ -20,17 +20,17 @@ const Step2 = () => {
         className="w-full h-full flex flex-col px-10 py-2 gap-10"
       >
         <span className="text-2xl font-bold">
-          {particle(info.me).name(조사.아_야)}, 반가워!
+          {particle(info.my_name).name(조사.아_야)}, 반가워!
           <br />
           상대방의 이름은 뭐야?
         </span>
         <Input
-          title="상대방의 이름을 입력해줘! (성 제외)"
+          title="상대방의 카톡 이름을 입력해줘!"
           placeholder="ex) 유정"
           onChange={({ target: { value } }) =>
-            setInfo((prev) => ({ ...prev, you: value }))
+            setInfo((prev) => ({ ...prev, your_name: value }))
           }
-          value={info.you}
+          value={info.your_name}
         />
         <Button
           className="bg-[#FF61BF] w-[80%] absolute bottom-14"

@@ -24,12 +24,12 @@ const Step1 = () => {
           어떻게 불러주는게 편해?
         </span>
         <Input
-          title="이름을 입력해줘! (성 제외)"
+          title="카카오톡에 저장된 너의 이름을 입력해줘!"
           placeholder="ex) 우빈"
           onChange={({ target: { value } }) =>
-            setInfo((prev) => ({ ...prev, me: value }))
+            setInfo((prev) => ({ ...prev, my_name: value }))
           }
-          value={info.me}
+          value={info.my_name}
         />
         <Button
           className="bg-[#FF61BF] w-[80%] absolute bottom-14"

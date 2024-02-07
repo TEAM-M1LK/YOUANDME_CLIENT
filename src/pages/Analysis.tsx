@@ -12,12 +12,19 @@ const Analysis = () => {
   const [, setResult] = useAtom(resultContext);
 
   useEffect(() => {
+    console.log(info);
     (async () => {
-      const { data } = await axios.post("/analysis", { data: info });
-      setResult(data);
-      navigate("/result");
+      if (info.contents.length > 1) {
+        const { data } = await axios.post(
+          "http://localhost:8000/talk/analysis",
+          { ...info }
+        );
+        console.log(data);
+        setResult(data);
+        navigate("/result");
+      }
     })();
-  }, []);
+  }, [info]);
 
   return (
     <Provider>

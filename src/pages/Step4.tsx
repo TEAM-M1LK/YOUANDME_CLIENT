@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useRef } from "react";
+import React, { ChangeEvent, useEffect, useRef } from "react";
 import { useStep } from "../hooks/useStep";
 import { useAtom } from "jotai";
 import { context } from "../context";
@@ -11,7 +11,7 @@ import Header from "../components/Header";
 
 const Step4 = () => {
   const { navigateNext } = useStep();
-  const [info, setInfo] = useAtom(context);
+  const [info] = useAtom(context);
   const { parseContent } = useParseContent();
   const fileRef = useRef<HTMLInputElement>(null);
 
@@ -19,13 +19,10 @@ const Step4 = () => {
     if (fileRef.current) fileRef.current.click();
   };
 
-  const handleUploadFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleUploadFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target;
     if (files) {
-      setInfo((prev) => ({
-        ...prev,
-        content: parseContent(files[0]),
-      }));
+      await parseContent(files[0]);
       navigateNext();
     }
   };
@@ -39,7 +36,7 @@ const Step4 = () => {
       >
         <hgroup className="flex flex-col gap-2">
           <span className="text-2xl font-bold">
-            마지막으로, {particle(info.you).name(조사.이_랑)}
+            마지막으로, {particle(info.your_name).name(조사.이_랑)}
             <br />
             대화한 내용을 보여줘!
           </span>
@@ -53,22 +50,22 @@ const Step4 = () => {
           </span>
           <div className="flex flex-col w-full cursor-pointer gap-6">
             {[
-              "대화 내용이 길수록 정확해져!",
-              "여러 날짜에 걸친 내용이 더 좋아!",
+              "대화 내용이 길수록 결과가 정확해져!",
+              "여러 날짜에 걸쳐 대화했다면 더욱 좋아!",
             ].map((content) => (
               <CheckBox
-                textClassName="text-[17px]"
+                textClassName="text-[14px]"
                 key={content}
                 content={content}
                 isChecked
               />
             ))}
             {[
-              "이모지, 사진이 많은 대화는 피해줘!",
-              "단톡방보단 개인톡 대화를 올려줘!",
+              "사진이 많으면 정확히 분석하기 어려워!",
+              "단톡방보단 1:1로 대화한 내용을 올려줘!",
             ].map((content) => (
               <CheckBox
-                textClassName="text-[17px]"
+                textClassName="text-[14px]"
                 key={content}
                 content={content}
                 isWarning
