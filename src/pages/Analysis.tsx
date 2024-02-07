@@ -16,7 +16,7 @@ const Analysis = () => {
     (async () => {
       if (info.contents.length > 1) {
         const { data } = await axios.post(
-          "http://ec2-13-209-41-56.ap-northeast-2.compute.amazonaws.com/QWB8Yfg2",
+          "https://youandme-server.kro.kr/QWB8Yfg2",
           {
             ...info,
           }
